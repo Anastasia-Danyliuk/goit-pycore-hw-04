@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 def total_salary(path):
-    with open(path, "r") as file:
+    with open(path, "r", encoding='utf-8') as file:
         sum_salary = 0
         mid_salary = 0
         for el in file.readlines():
@@ -16,7 +16,7 @@ def total_salary(path):
 
 
 try:
-    result = total_salary("salary.txt")
+    result = total_salary("homework04_1/salary.txt")
     print(
         f"Загальна сума заробітної плати: {result[1]}, Середня заробітна плата: {result[0]}"
     )
