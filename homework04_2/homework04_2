@@ -1,0 +1,20 @@
+from pathlib import Path
+
+
+def get_cats_info(path):
+    with open(path, "r", encoding="utf-8") as file:
+        cats = []
+        for el in file.readlines():
+            line = el.strip()
+            cat_info = line.split(",")
+            cats.append({"id": cat_info[0], "name": cat_info[1], "age": cat_info[2]})
+    return cats
+
+
+try:
+    result = get_cats_info("homework04_2/cats.txt")
+    print(result)
+except FileNotFoundError:
+    print("File not Found")
+except IOError:
+    print("File is damaged")
